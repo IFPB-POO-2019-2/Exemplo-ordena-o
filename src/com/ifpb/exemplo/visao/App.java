@@ -19,6 +19,11 @@ public class App {
                         LocalDate.of(1992,5,1))
         };
 
+        System.out.println("Imprimir inverso");
+        imprimirInverso(pessoas);
+        System.out.println("Imprimir maior");
+        System.out.println(maior(pessoas));
+
 //        Comparador comparador = new Comparador();
 //        Arrays.sort(pessoas, comparador);
 //        System.out.println(Arrays.toString(pessoas));
@@ -32,8 +37,25 @@ public class App {
         };
 
         Arrays.sort(pessoas, comparador);
+        System.out.println("Imprimir ordenado");
         System.out.println(Arrays.toString(pessoas));
 
+    }
+
+    //Exercício 1
+    public static <T> void imprimirInverso(T[] array){
+        for(int i=array.length-1; i>=0; i--){
+            System.out.println(array[i]);
+        }
+    }
+
+    //Exercício 2
+    public static <T extends Comparable> T maior(T[] array){
+        T maior = array[0];
+        for(T elemento : array){
+            if(elemento.compareTo(maior)>0) maior = elemento;
+        }
+        return maior;
     }
 
     //Classe interna
